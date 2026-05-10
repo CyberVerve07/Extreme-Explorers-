@@ -33,6 +33,7 @@ export interface BlogPost {
   placeSlug: string;
   readTime: string;
   image: string;
+  images?: string[];
   content: string;
 }
 
@@ -394,8 +395,15 @@ export const mockBlogs: BlogPost[] = [
     date: "2024-01-15",
     place: "Amazon Rainforest",
     placeSlug: "amazon-rainforest",
-    readTime: "15 min read",
+    readTime: "45 min read",
     image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80",
+      "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?w=800&q=80",
+      "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&q=80",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+      "https://images.unsplash.com/photo-1540206276207-3d257915ba51?w=800&q=80"
+    ],
     content: `
 # Day 1: Entering the Green Hell
 
@@ -435,6 +443,265 @@ Emerging from the jungle after 30 days, I was a different person. I had learned 
 7. Respect indigenous communities and their territories
 
 The Amazon is not for the unprepared, but for those who respect its dangers, it offers rewards found nowhere else on Earth.
+
+## Preparation: Two Years of Training
+
+Before setting foot in the Amazon, I spent two years preparing in every way possible:
+
+### Physical Preparation
+The Amazon demands peak physical condition. I trained daily with a focus on:
+- **Endurance**: Long-distance running and hiking with a 40kg pack
+- **Strength**: Core and upper body training for carrying supplies
+- **Heat acclimation**: Spending hours in saunas and hot environments
+- **Swimming**: Building strength for river crossings
+
+### Medical Preparation
+I completed a wilderness first responder course and learned:
+- **Tropical medicine**: Identifying and treating jungle-specific diseases
+- **Snakebite treatment**: Emergency response to venomous snake bites
+- **Wound care**: Managing infections in humid environments
+- **Emergency medicine**: Creating a comprehensive medical kit
+
+### Skills Training
+Essential survival skills I mastered:
+- **Navigation**: Using GPS, compass, and natural landmarks
+- **Fire starting**: Multiple methods for wet conditions
+- **Water purification**: Various techniques for safe drinking water
+- **Shelter building**: Creating waterproof shelters from jungle materials
+- **Plant identification**: Learning edible and medicinal plants
+
+## Days 2-7: Adjusting to Jungle Life
+
+### Learning the Rhythm
+The first week was about adjustment. My body had to adapt to:
+- **Extreme humidity**: Sweat never dried, clothes stayed soaked
+- **Constant movement**: The jungle was always alive with activity
+- **New sleep patterns**: The noise made deep sleep impossible
+- **Diet changes**: Living on rice, beans, and what we could forage
+
+### Daily Routine
+Our routine quickly established:
+- **4 AM**: Wake before dawn
+- **4:30 AM**: Break camp and start hiking
+- **8 AM**: Breakfast break (quick, to avoid peak heat)
+- **12 PM**: Rest during hottest hours
+- **2 PM**: Resume hiking until dusk
+- **6 PM**: Set up camp and prepare dinner
+- **8 PM**: Night watch rotation
+- **10 PM**: Sleep
+
+### Wildlife Encounters
+The biodiversity was staggering:
+- **Monkeys**: Howler monkeys waking us with their calls
+- **Birds**: Macaws, toucans, and countless other species
+- **Insects**: More varieties than I could count
+- **Reptiles**: Iguanas, turtles, and countless lizards
+- **Mammals**: Capybaras, agoutis, and the occasional distant jaguar
+
+## Days 8-15: Deep Jungle Exploration
+
+### Reaching the Interior
+After a week, we reached the interior region where human presence was minimal. This was the true Amazon - untouched, wild, and magnificent.
+
+### The Amazon River
+We spent several days following tributaries:
+- **Fishing**: Catching piranhas and other fish
+- **Swimming**: Carefully, in known safe areas
+- **Observation**: Watching pink river dolphins
+- **Navigation**: Using the river as our guide
+
+### Night Expeditions
+Carlos insisted on night walks to understand the jungle's nocturnal life:
+- **Bioluminescence**: Fungi and insects glowing in the dark
+- **Night sounds**: A completely different soundscape
+- **Predators**: The jungle's hunters become active
+- **Stars**: When visible, the night sky was incredible
+
+## Days 16-22: The Real Challenges Begin
+
+### The Storm
+A massive tropical storm hit on day 16:
+- **Rainfall**: 300mm in 24 hours
+- **Flooding**: Our camp was nearly washed away
+- **Temperature drop**: Unusual cold for the Amazon
+- **Isolation**: We were cut off for 48 hours
+
+This taught me the importance of:
+- **Elevated shelters**: Building above flood levels
+- **Weather monitoring**: Reading the sky and plants
+- **Emergency supplies**: Always having backup food and water
+- **Mental resilience**: Staying calm in crisis
+
+### Getting Lost
+Navigation became challenging:
+- **Dense canopy**: GPS signals were unreliable
+- **Similar terrain**: Everything looked the same
+- **Carlos's skill**: Using natural landmarks and animal signs
+- **The realization**: Modern technology has limits in the jungle
+
+## Days 23-30: Mastery and Reflection
+
+### Reaching Our Destination
+By day 23, we reached our target area - a region rarely visited by outsiders:
+- **Pristine wilderness**: Untouched by human activity
+- **Incredible biodiversity**: Species I'd never seen before
+- **Indigenous territory**: We were careful to respect boundaries
+- **Spiritual connection**: The jungle felt alive in a profound way
+
+### Learning from the Jungle
+The final week was about deeper understanding:
+- **Plant medicine**: Carlos taught me about healing plants
+- **Animal communication**: Understanding behavior and signals
+- **Weather prediction**: Reading nature's signs
+- **Survival instincts**: Developing a sixth sense for danger
+
+## Survival Techniques Learned
+
+### Water Procurement
+Multiple methods for safe drinking water:
+1. **Boiling**: Most reliable method
+2. **Filtration**: Using natural materials
+3. **Chemical treatment**: Iodine or chlorine
+4. **Solar disinfection**: Using UV light
+5. **Plant water**: Certain vines provide drinkable water
+
+### Food Sources
+Jungle food sources:
+- **Fruits**: Many edible varieties, but some deadly
+- **Nuts**: High energy, but require identification
+- **Fish**: Abundant in rivers, but require skill
+- **Small game**: Only with proper tools and knowledge
+- **Insects**: Protein-rich, but require preparation
+
+### Shelter Building
+Effective jungle shelters:
+- **Elevated hammocks**: Protection from ground animals
+- **Thatched roofs**: Waterproof using palm fronds
+- **Natural barriers**: Using thorny plants for protection
+- **Ventilation**: Essential for heat management
+- **Quick setup**: For emergency situations
+
+## Wildlife Encounters: A Comprehensive Guide
+
+### Venomous Snakes
+The Amazon's most dangerous snakes:
+- **Fer-de-lance**: Most aggressive, highly venomous
+- **Bushmaster**: Largest viper, deadly venom
+- **Coral snakes**: Brightly colored, neurotoxic venom
+- **Jararaca**: Common, responsible for many bites
+
+**Prevention**:
+- Wear heavy boots and long pants
+- Use a walking stick to probe ahead
+- Never put hands in crevices
+- Watch where you step
+- Learn to identify local species
+
+### Insects and Spiders
+The tiny killers of the jungle:
+- **Bullet ants**: Painful sting, can incapacitate
+- **Brazilian wandering spider**: Highly venomous
+- **Kissing bugs**: Carry Chagas disease
+- **Mosquitoes**: Malaria, dengue, Zika vectors
+
+**Protection**:
+- DEET-based repellent (30%+)
+- Permethrin-treated clothing
+- Bed nets for sleeping
+- Full body coverage
+- Regular inspection
+
+## Medical Challenges and Solutions
+
+### Common Jungle Illnesses
+Tropical diseases to watch for:
+- **Malaria**: Prevent with antimalarials
+- **Dengue fever**: No specific treatment
+- **Leishmaniasis**: Parasitic skin infection
+- **Yellow fever**: Prevent with vaccination
+
+**Prevention**:
+- Vaccinations before travel
+- Antimalarial medication
+- Insect bite prevention
+- Water purification
+- Regular health monitoring
+
+### Wound Management
+Infection risk is extremely high:
+- **Immediate cleaning**: With purified water
+- **Antibiotic application**: From medical kit
+- **Covering wounds**: Keep dry and clean
+- **Monitoring**: Watch for infection signs
+- **Evacuation**: For serious wounds
+
+## The Indigenous Perspective
+
+### Learning from the People
+Carlos introduced us to indigenous communities:
+- **Traditional knowledge**: Thousands of years of experience
+- **Sustainable living**: Living in harmony with the jungle
+- **Plant medicine**: Incredible healing knowledge
+- **Spiritual connection**: Deep respect for nature
+
+### Traditional Skills
+Skills I learned from indigenous guides:
+- **Tracking**: Reading signs like a language
+- **Hunting**: Sustainable, respectful methods
+- **Fishing**: Traditional techniques
+- **Plant use**: Medicine, food, tools
+- **Navigation**: Without modern tools
+
+## Equipment and Gear: What You Really Need
+
+### Essential Equipment
+Non-negotiable items:
+- **Quality hammock**: With mosquito net
+- **Waterproof boots**: Break in before trip
+- **Quick-dry clothing**: Multiple sets
+- **Water purification**: Multiple methods
+- **First aid kit**: Comprehensive and stocked
+- **Navigation tools**: GPS, compass, maps
+- **Communication device**: Satellite phone
+- **Lighting**: Headlamp and backup
+
+### What to Leave Behind
+Items that aren't necessary:
+- **Excess clothing**: You'll wear the same things
+- **Heavy electronics**: Weight and risk of damage
+- **Fancy gear**: Simple is often better
+- **Too much food**: Forage and travel light
+- **Unnecessary luxuries**: The jungle is luxury enough
+
+## Final Thoughts and Recommendations
+
+### For Future Explorers
+Advice for those who want to follow:
+- **Start small**: Build up to longer expeditions
+- **Get proper training**: Don't skip preparation
+- **Respect the jungle**: It's not a playground
+- **Hire local guides**: Their knowledge is invaluable
+- **Leave no trace**: Protect what you love
+
+### The Ultimate Lesson
+What the Amazon taught me:
+- **We are part of nature**: Not separate from it
+- **Life is precious**: Every moment matters
+- **Less is more**: Simplicity is freedom
+- **Connection is everything**: To self, others, Earth
+- **The journey is the destination**: Every step is the goal
+
+## Conclusion: A Changed Person
+
+Emerging from the Amazon after 30 days, I was fundamentally changed. The jungle had tested me physically, mentally, and spiritually. It had shown me beauty beyond imagination and danger beyond comprehension. It had taught me lessons that no book could teach.
+
+The Amazon is not just a place - it's a teacher, a challenge, a paradise, and a hell all at once. It demands respect, rewards courage, and transforms those who enter with an open heart and mind.
+
+I carry the Amazon with me always - in the resilience I discovered, the perspective I gained, and the connection to nature that will never fade. The jungle didn't just survive - it thrived, and in doing so, it helped me thrive too.
+
+For anyone considering such an expedition, know this: it will be the hardest thing you've ever done, and the most rewarding. The Amazon doesn't forgive mistakes, but it rewards those who approach it with humility, respect, and an open heart.
+
+The rainforest is calling. Will you answer?
     `
   },
   {
@@ -445,8 +712,14 @@ The Amazon is not for the unprepared, but for those who respect its dangers, it 
     date: "2024-02-20",
     place: "Mount Everest",
     placeSlug: "mount-everest",
-    readTime: "20 min read",
+    readTime: "30 min read",
     image: "https://images.unsplash.com/photo-1574735765780-aca0c7a0a9ea?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+      "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=800&q=80"
+    ],
     content: `
 # The Death Zone: Where Every Breath Counts
 
@@ -508,8 +781,14 @@ Everest is not just a mountain - it's a test of human will, preparation, and res
     date: "2024-03-10",
     place: "Sahara Desert",
     placeSlug: "sahara-desert",
-    readTime: "12 min read",
+    readTime: "20 min read",
     image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1542401886-65d6c61db217?w=800&q=80",
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80"
+    ],
     content: `
 # 150 Kilometers of Golden Silence
 
@@ -559,8 +838,14 @@ The Sahara is not empty - it's full of life, beauty, and lessons for those willi
     date: "2024-04-05",
     place: "Antarctica",
     placeSlug: "antarctica",
-    readTime: "18 min read",
+    readTime: "25 min read",
     image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1469827160297-5101d87d46af?w=800&q=80",
+      "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80",
+      "https://images.unsplash.com/photo-1520984032042-162d526883e0?w=800&q=80",
+      "https://images.unsplash.com/photo-1518182170546-0766aa6f607d?w=800&q=80"
+    ],
     content: `
 # Six Months at the Bottom of the World
 
@@ -628,8 +913,14 @@ Antarctica is not just a place - it's a teacher of humility, resilience, and the
     date: "2024-05-12",
     place: "Death Valley",
     placeSlug: "death-valley",
-    readTime: "14 min read",
+    readTime: "18 min read",
     image: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80",
+    images: [
+      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&q=80",
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80",
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+      "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80"
+    ],
     content: `
 # 56.7°C: The Hottest Place on Earth
 

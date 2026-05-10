@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, User, MapPin, Clock, BookOpen, Share2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { mockBlogs } from "@/lib/data";
+import { TextHighlighter } from "@/components/text-highlighter";
 
 export async function generateStaticParams() {
   return mockBlogs.map((blog) => ({
@@ -67,10 +68,28 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
         {/* Content */}
         <div className="prose prose-invert prose-lg max-w-none">
-          <div className="whitespace-pre-wrap text-base leading-relaxed text-muted-foreground">
-            {blog.content}
-          </div>
+          <TextHighlighter content={blog.content} postId={blog.id.toString()} />
         </div>
+
+        {/* Images Gallery */}
+        {blog.images && blog.images.length > 0 && (
+          <div className="mt-12">
+            <h2 className="font-headline text-2xl font-bold text-foreground mb-6">
+              Photo Gallery
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {blog.images.map((img, index) => (
+                <div key={index} className="relative aspect-video rounded-lg overflow-hidden border border-border">
+                  <img
+                    src={img}
+                    alt={`${blog.title} - Photo ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Share and Related */}
         <div className="mt-12 pt-8 border-t border-border/60">
