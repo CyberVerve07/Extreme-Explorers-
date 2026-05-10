@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ExternalLink } from "lucide-react";
+import { useState } from "react";
 
 const galleryIds = [
   "wildlife-penguins",
@@ -36,6 +37,16 @@ export function ImageGalleryStrip() {
     .map((id) => PlaceHolderImages.find((p) => p.id === id))
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = (id: string) => {
+    setLoadedImages((prev) => new Set([...prev, id]));
+  };
+
+  const handleImageError = (id: string) => {
+    setLoadedImages((prev) => new Set([...prev, id]));
+  };
+
   return (
     <section className="w-full py-20 md:py-28 px-4 relative z-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent pointer-events-none" />
@@ -64,13 +75,18 @@ export function ImageGalleryStrip() {
                 i === 0 || i === 5 ? 'md:row-span-2 md:aspect-[3/4]' : 'aspect-[3/4]'
               }`}
             >
+              {!loadedImages.has(img.id) && (
+                <div className="absolute inset-0 skeleton" />
+              )}
               <Image
                 src={img.imageUrl}
                 alt={img.description}
                 fill
                 loading="lazy"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                className={`object-cover transition-transform duration-500 ease-out group-hover:scale-110 ${loadedImages.has(img.id) ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => handleImageLoad(img.id)}
+                onError={() => handleImageError(img.id)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 truncate">

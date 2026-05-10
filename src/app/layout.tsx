@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { BackToTop } from "@/components/back-to-top";
 
 export const metadata: Metadata = {
   title: 'Antarctica Unveiled',
@@ -31,6 +32,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <BackToTop />
           <Toaster />
       </body>
     </html>

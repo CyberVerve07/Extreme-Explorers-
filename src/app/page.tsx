@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronDown, Snowflake, Mountain, ThermometerSnowflake, Wind, Droplets, PawPrint, Ship, Compass, Calendar, ArrowRight } from "lucide-react";
@@ -6,6 +8,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ExploreCard } from "@/components/explore-card";
 import { HomeStats } from "@/components/home-stats";
 import { ImageGalleryStrip } from "@/components/image-gallery-strip";
+import { useEffect } from "react";
 
 const navItems: { name: string; href: string; desc: string; imageId: string }[] = [
   { name: "History", href: "/history", desc: "The heroic age of exploration and treaties.", imageId: "history-exploration" },
@@ -37,6 +40,26 @@ const facts = [
 export default function Home() {
   const heroImage = PlaceHolderImages.find((p) => p.id === "hero-antarctica");
   const heroAurora = PlaceHolderImages.find((p) => p.id === "hero-aurora");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      revealElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <div className="w-full flex flex-col min-h-screen bg-background text-foreground">
@@ -144,7 +167,7 @@ export default function Home() {
       <HomeStats />
 
       {/* Quick Facts Section */}
-      <section className="w-full py-16 md:py-20 px-4 relative z-20 bg-card/20">
+      <section className="w-full py-16 md:py-20 px-4 relative z-20 bg-card/20 reveal-on-scroll">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
@@ -160,7 +183,7 @@ export default function Home() {
             {facts.map((fact, index) => (
               <div
                 key={index}
-                className="group flex flex-col items-center text-center p-5 rounded-2xl border border-border/60 bg-card/40 hover:border-primary/50 hover:bg-card/60 hover:-translate-y-1 transition-all duration-300 cursor-default"
+                className={`group flex flex-col items-center text-center p-5 rounded-2xl border border-border/60 bg-card/40 hover:border-primary/50 hover:bg-card/60 hover:-translate-y-1 transition-all duration-300 cursor-default stagger-${index + 1}`}
               >
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/15 text-primary group-hover:bg-primary/25 group-hover:scale-110 transition-all duration-300">
                   <fact.icon className="h-6 w-6" />
@@ -176,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Wildlife Showcase */}
-      <section className="w-full py-16 md:py-24 px-4 relative z-20 overflow-hidden">
+      <section className="w-full py-16 md:py-24 px-4 relative z-20 overflow-hidden reveal-on-scroll">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -202,13 +225,13 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {wildlifeItems.map((item) => {
+            {wildlifeItems.map((item, index) => {
               const image = PlaceHolderImages.find((p) => p.id === item.imageId);
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="group relative aspect-square rounded-2xl overflow-hidden border border-border/60 hover:border-primary/50 shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2"
+                  className={`group relative aspect-square rounded-2xl overflow-hidden border border-border/60 hover:border-primary/50 shadow-lg hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2 stagger-${index + 1}`}
                 >
                   {image && (
                     <Image
@@ -234,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* Explore Grid - image cards */}
-      <section id="explore" className="w-full py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative z-20">
+      <section id="explore" className="w-full py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative z-20 reveal-on-scroll">
         <div className="max-w-6xl mx-auto flex flex-col gap-14">
           <div className="text-center flex flex-col items-center gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium">
@@ -251,21 +274,22 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {navItems.map((item) => (
-              <ExploreCard
-                key={item.name}
-                name={item.name}
-                href={item.href}
-                desc={item.desc}
-                image={PlaceHolderImages.find((p) => p.id === item.imageId) ?? null}
-              />
+            {navItems.map((item, index) => (
+              <div key={item.name} className={`stagger-${(index % 8) + 1}`}>
+                <ExploreCard
+                  name={item.name}
+                  href={item.href}
+                  desc={item.desc}
+                  image={PlaceHolderImages.find((p) => p.id === item.imageId) ?? null}
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Expedition & Tourism Section */}
-      <section className="w-full py-16 md:py-24 px-4 relative z-20 bg-gradient-to-b from-card/30 via-transparent to-card/30">
+      <section className="w-full py-16 md:py-24 px-4 relative z-20 bg-gradient-to-b from-card/30 via-transparent to-card/30 reveal-on-scroll">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border/60">
@@ -329,7 +353,9 @@ export default function Home() {
       </section>
 
       {/* Image gallery strip */}
-      <ImageGalleryStrip />
+      <div className="reveal-on-scroll">
+        <ImageGalleryStrip />
+      </div>
     </div>
   );
 }

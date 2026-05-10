@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import type { ImagePlaceholder } from "@/lib/placeholder-images";
+import { useState } from "react";
 
 type ExploreCardProps = {
   name: string;
@@ -13,6 +14,9 @@ type ExploreCardProps = {
 };
 
 export function ExploreCard({ name, href, desc, image }: ExploreCardProps) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
   return (
     <Link 
       href={href} 
@@ -20,16 +24,28 @@ export function ExploreCard({ name, href, desc, image }: ExploreCardProps) {
     >
       <article className="h-full rounded-2xl overflow-hidden border border-border/80 bg-card/80 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 active:translate-y-0">
         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-          {image ? (
-            <Image
-              src={image.imageUrl}
-              alt={image.description}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-            />
+          {image && !hasError ? (
+            <>
+              {isLoading && (
+                <div className="absolute inset-0 skeleton" />
+              )}
+              <Image
+                src={image.imageUrl}
+                alt={image.description}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className={`object-cover transition-transform duration-500 ease-out group-hover:scale-110 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                onLoad={() => setIsLoading(false)}
+                onError={() => {
+                  setIsLoading(false);
+                  setHasError(true);
+                }}
+              />
+            </>
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+              <Sparkles className="h-8 w-8 text-primary/50" />
+            </div>
           )}
           
           {/* Gradient overlay */}
