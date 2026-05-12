@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Calendar, User, MapPin, ArrowRight, Terminal, Share2, Eye, MessageSquare } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -42,19 +43,48 @@ export default function BlogPage() {
       {/* Blog Feed */}
       <section className="w-full py-16 px-4">
         <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between gap-6 pb-8">
+            <div className="space-y-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 text-white/70 font-mono text-[10px] tracking-[0.2em] uppercase">
+                <BookOpen className="h-3 w-3 text-secondary" />
+                Latest reports
+              </div>
+              <h2 className="font-headline text-3xl md:text-4xl font-black tracking-tight text-white">
+                Recent decrypts
+              </h2>
+              <p className="text-muted-foreground/80 text-sm md:text-base font-light max-w-2xl">
+                Clean, readable field logs with high-resolution imagery and structured metadata.
+              </p>
+            </div>
+            <div className="hidden md:flex items-center gap-3 text-[10px] font-mono text-muted-foreground/60 tracking-[0.2em] uppercase">
+              <span className="px-3 py-2 rounded-lg glass border border-white/10">
+                Total: {mockBlogs.length.toString().padStart(2, "0")}
+              </span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {mockBlogs.map((blog, index) => (
-              <Card key={blog.id} className="overflow-hidden glass-card border border-white/5 hover:border-primary/40 transition-all duration-700 group flex flex-col md:flex-row h-auto md:h-[300px]">
+              <Card
+                key={blog.id}
+                className="overflow-hidden glass-card border border-white/5 hover:border-primary/40 transition-all duration-700 group flex flex-col md:flex-row h-auto md:h-[320px]"
+              >
                 {/* Media Container */}
                 <div className="relative w-full md:w-[40%] h-[200px] md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-white/5 group-hover:border-primary/20 transition-all">
-                  <img
+                  <Image
                     src={blog.image}
                     alt={blog.title}
-                    className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                    fill
+                    priority={index < 2}
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                    quality={92}
+                    className="object-cover grayscale-[0.25] group-hover:grayscale-0 group-hover:scale-[1.08] transition-all duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/55 via-transparent to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#020617]/40" />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-md glass-glow text-[10px] font-mono font-bold tracking-widest text-primary border border-primary/30">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md glass-glow text-[10px] font-mono font-bold tracking-widest text-primary border border-primary/30">
+                      <MapPin className="h-3 w-3" />
                       {blog.place}
                     </span>
                   </div>
@@ -63,14 +93,18 @@ export default function BlogPage() {
                 {/* Content Container */}
                 <div className="flex-1 p-6 flex flex-col justify-between relative overflow-hidden">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4 text-[10px] font-mono text-primary/60 tracking-widest uppercase">
-                      <div className="flex items-center gap-1.5">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-mono text-primary/60 tracking-widest uppercase">
+                      <div className="flex items-center gap-1.5 whitespace-nowrap">
                         <User className="h-3 w-3" />
                         <span>OPERATIVE: {blog.author.split(' ')[0]}</span>
                       </div>
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1.5 whitespace-nowrap">
                         <Calendar className="h-3 w-3" />
                         <span>{new Date(blog.date).toLocaleDateString()}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 whitespace-nowrap text-secondary/70">
+                        <span className="h-3 w-3 rounded-sm border border-secondary/40" />
+                        <span>{blog.readTime}</span>
                       </div>
                     </div>
                     
