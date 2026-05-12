@@ -81,7 +81,7 @@ const pageConfig: { [key: string]: { title: string; imageId: string; staticConte
     'deep-facts': {
         title: "Deep Facts About Antarctica",
         imageId: "deep-facts",
-        staticContent: factsPageContentImport,
+        staticContent: factsPageContent,
     },
 };
 
