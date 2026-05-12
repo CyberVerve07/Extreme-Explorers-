@@ -23,7 +23,6 @@ import {
   BarChart3,
   Info
 } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ContentBody } from "@/components/content-body";
 import { RelatedImages } from "@/components/related-images";
 import Snowfall from "@/components/ui/snowfall";
@@ -32,15 +31,8 @@ import { Button } from "@/components/ui/button";
 
 // NOTE: All AI-generated content has been replaced with static content to resolve persistent generation errors.
 
-import { 
-  lifePageContent,
-  climatePageContent,
-  visitPageContent,
-  factsPageContent as factsPageContentImport,
-  historyPageContent,
-  researchPageContent,
-  wildlifePageContent,
-  expeditionPageContent
+  expeditionPageContent,
+  PlaceHolderImages
 } from "@/lib/data";
 
 const pageConfig: { [key: string]: { title: string; imageId: string; staticContent: string; } } = {
